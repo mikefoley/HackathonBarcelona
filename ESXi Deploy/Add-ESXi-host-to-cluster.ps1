@@ -1,0 +1,1 @@
+﻿117..120 | Foreach-Object { Add-VMHost esxi-$_.demo.vmware.com -Location (Get-cluster vsanCluster) -User root -Password VMware1! -RunAsync -force:$true }

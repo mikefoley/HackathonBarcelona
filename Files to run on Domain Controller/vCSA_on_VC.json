@@ -1,0 +1,51 @@
+{
+    "__version": "2.1.0",
+    "__comments": "Sample template to deploy a vCenter Server Appliance with an external Platform Services Controller on a vCenter Server instance.",
+    "target.vcsa": {
+        "vc": {
+            "hostname": "<FQDN or IP address of the vCenter Server instance>",
+            "username": "<vCenter Server username>",
+            "password": "<vCenter Server password. If left blank, or omitted, you will be prompted to enter it at the command console during template verification.>",
+            "deployment.network": "VM Network",
+            "datacenter": [
+                "parent folder",
+                "child folder",
+                "Datacenter"
+            ],
+            "datastore": "<A specific ESXi host or DRS cluster datastore, or a specific datastore in a datastore cluster.>",
+            "target": [
+                "parent folder",
+                "child folder",
+                "<ESXi host or DRS cluster>"
+            ],
+			"vm.folder": "<VM Folder name>"
+
+        },
+        "appliance": {
+            "thin.disk.mode": true,
+            "deployment.option": "management-small",
+            "name": "vCenter-Server-Appliance"
+        },
+        "network": {
+            "ip.family": "ipv4",
+            "mode": "static",
+            "ip": "<Static IP address. Remove this if using dhcp.>",
+            "dns.servers": [
+                "<DNS Server IP Address. Remove this if using dhcp.>"
+            ],
+            "prefix": "<The value must be from 0 to 32. Remove this if using dhcp.>",
+            "gateway": "<Gateway IP address. Remove this if using dhcp.>",
+            "system.name": "<FQDN or IP address for the appliance. Remove this if using dhcp.>"
+        },
+        "os": {
+            "password": "<Appliance root password; refer to --template-help for password policy. If left blank, or omitted, you will be prompted to enter it at the command console during template verification.>",
+            "ssh.enable": false
+        },
+        "sso": {
+            "password": "<vCenter Single Sign-On administrator password; refer to --template-help for password policy. If left blank, or omitted, you will be prompted to enter it at the command console during template verification.>",
+            "domain-name": "vsphere.local",
+            "platform.services.controller": "<System name of the Platform Services Controller>",
+            "sso.port": 443
+        }
+    }
+}
